@@ -64,5 +64,5 @@
 
 ---
 
-### **What’s Next?**  
-Would you like to continue with **Triggers** next, or do you want to focus on a specific advanced topic? 🚀
+### **What’s Next?**🚀  
+Would you like to continue with **Triggers** next, or do you want to focus on a specific advanced topic? 
