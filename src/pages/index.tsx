@@ -1,16 +1,21 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
+import Layout from '@theme/Layout';
+import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
+import Head from '@docusaurus/Head';
 import styles from './index.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
+    <>
+    <Head>
+      <meta name="algolia-site-verification"  content="1792A53652534A17" />
+    </Head>
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
@@ -26,6 +31,7 @@ function HomepageHeader() {
         </div>
       </div>
     </header>
+    </>
   );
 }
 
