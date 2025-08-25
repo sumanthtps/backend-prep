@@ -9,23 +9,15 @@ const config: Config = {
   tagline: "Dinosaurs are cool, not Java",
   favicon: "img/favicon.ico",
 
-  // Set the production url of your site here
   url: "https://your-docusaurus-site.example.com",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "Sumanth", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "Sumanth",
+  projectName: "docusaurus",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -37,10 +29,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
           showReadingTime: true,
@@ -48,11 +36,8 @@ const config: Config = {
             type: ["rss", "atom"],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",
           onUntruncatedBlogPosts: "warn",
@@ -64,8 +49,22 @@ const config: Config = {
     ],
   ],
 
+  // 👇 Add this section
+  plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true, // better caching
+        indexDocs: true, // search in /docs/**/*.md(x)
+        indexBlog: true, // search in /blog/**/*.md(x)
+        indexPages: true, // search in /src/pages/**/*.mdx
+        docsRouteBasePath: "/", // change if your docs aren’t under /docs
+        searchResultContextMaxLength: 80, // snippet length in results
+      },
+    ],
+  ],
+
   themeConfig: {
-    // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "Be Dev",
@@ -80,12 +79,7 @@ const config: Config = {
           position: "left",
           label: "Tutorial",
         },
-        // { to: "/blog", label: "Blog", position: "left" },
-        // {
-        //   href: "https://github.com/facebook/docusaurus",
-        //   label: "GitHub",
-        //   position: "right",
-        // },
+        { type: "search", position: "right" }, // 👈 ensure search box in navbar
       ],
     },
     footer: {
@@ -93,42 +87,15 @@ const config: Config = {
       links: [
         {
           title: "Docs",
-          items: [
-            {
-              label: "Tutorial",
-              to: "/docs/intro",
-            },
-          ],
+          items: [{ label: "Tutorial", to: "/docs/intro" }],
         },
         {
           title: "Community",
-          items: [
-            {
-              label: "Chatgpt",
-              href: "https://chatgpt.com/",
-            },
-            // {
-            //   label: "Discord",
-            //   href: "https://discordapp.com/invite/docusaurus",
-            // },
-            // {
-            //   label: "X",
-            //   href: "https://x.com/docusaurus",
-            // },
-          ],
+          items: [{ label: "Chatgpt", href: "https://chatgpt.com/" }],
         },
         {
           title: "More",
-          items: [
-            // {
-            //   label: "Blog",
-            //   to: "/blog",
-            // },
-            {
-              label: "GitHub",
-              href: "https://github.com/sumanthtps",
-            },
-          ],
+          items: [{ label: "GitHub", href: "https://github.com/sumanthtps" }],
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
